@@ -2,6 +2,7 @@ package com.example.goosechat.service;
 
 import com.example.goosechat.model.Chatroom;
 import com.example.goosechat.repository.ChatroomRepository;
+import lombok.experimental.SuperBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +31,7 @@ import java.util.Optional;
                             .chatter2(recipientId)
                             .build();
 
-                    Chatroom recipientSender = Chatroom
-                            .builder()
+                    Chatroom recipientSender = Chatroom.builder()
                             .chatId(chatId)
                             .chatter1(recipientId)
                             .chatter2(senderId)

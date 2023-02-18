@@ -9,7 +9,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@AllArgsConstructor @NoArgsConstructor @Builder @Document @Data
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Document
 public class Chatroom {
     @Id @GeneratedValue private long cId;
     private String chatId;
