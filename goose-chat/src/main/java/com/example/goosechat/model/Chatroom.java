@@ -17,8 +17,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Chatroom {
     @Id @GeneratedValue private long cId;
     private String chatId;
-    private String chatter1;
-    private String chatter2;
+    private String sender;
+    private String recipient;
 
     public long getcId() {
         return cId;
@@ -36,19 +36,19 @@ public class Chatroom {
         this.chatId = chatId;
     }
 
-    public String getChatter1() {
-        return chatter1;
+    public String getSender() {
+        return sender;
     }
 
-    public void setChatter1(String chatter1) {
-        this.chatter1 = chatter1;
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 
-    public String getChatter2() {
-        return chatter2;
+    public String getRecipient() {
+        return recipient;
     }
 
-    public void setChatter2(String chatter2) {
-        this.chatter2 = chatter2;
+    public void setRecipient(String recipient) {
+        this.recipient = recipient;
     }
 }

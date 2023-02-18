@@ -13,28 +13,28 @@ import java.util.Optional;
     private ChatroomRepository chatRoomRepository;
 
     public Optional<String> getChatId(
-            String senderId, String recipientId, boolean createIfNotExist) {
+            String sender, String recipient, boolean createIfNotExist) {
 
         return chatRoomRepository
-                .findBySenderIdAndRecipientId(senderId, recipientId)
+                .findBySenderAndRecipient(sender, recipient)
                 .map(Chatroom::getChatId)
                 .or(() -> {
                     if(!createIfNotExist) {
                         return  Optional.empty();
                     }
-                    var chatId = String.format("%s_%s", senderId, recipientId);
+                    var chatId = String.format("%s_%s", sender, recipient);
 
                     Chatroom senderRecipient = Chatroom
                             .builder()
                             .chatId(chatId)
-                            .chatter1(senderId)
-                            .chatter2(recipientId)
+                            .sender(sender)
+                            .recipient(recipient)
                             .build();
 
                     Chatroom recipientSender = Chatroom.builder()
                             .chatId(chatId)
-                            .chatter1(recipientId)
-                            .chatter2(senderId)
+                            .sender(recipient) // TODO: CHECK IF RIGHT?
+                            .recipient(sender)
                             .build();
                     chatRoomRepository.save(senderRecipient);
                     chatRoomRepository.save(recipientSender);

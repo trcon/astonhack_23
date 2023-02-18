@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface MessageRepository extends MongoRepository<Message, String> {
 
-    long countBySenderIdAndRecipientIdAndStatus(
-            String senderId, String recipientId, Status status);
+    long countBySenderAndRecipientAndStatus(
+            String sender, String recipient, Status status);
 
     List<Message> findByChatId(String chatId);
 }

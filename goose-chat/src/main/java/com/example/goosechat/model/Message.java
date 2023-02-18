@@ -20,7 +20,7 @@ public class Message {
     private String recipient;
     private String content;
     private Status status;
-    private String chatroom;
+    private String chatId;
 
     public long getmId() {
         return mId;
@@ -62,11 +62,11 @@ public class Message {
         this.status = status;
     }
 
-    public String getChatroom() {
-        return chatroom;
+    public String getChatId() {
+        return chatId;
     }
 
-    public void setChatroom(String chatroom) {
-        this.chatroom = chatroom;
+    public void setChatId(String chatId) {
+        this.chatId = chatId;
     }
 }

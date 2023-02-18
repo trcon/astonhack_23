@@ -25,19 +25,19 @@ public class MessageService {
         return chatMessage;
     }
 
-    public long countNewMessages(String senderId, String recipientId) {
-        return repository.countBySenderIdAndRecipientIdAndStatus(
-                senderId, recipientId, Status.RECEIVED);
+    public long countNewMessages(String sender, String recipient) {
+        return repository.countBySenderAndRecipientAndStatus(
+                sender, recipient, Status.RECEIVED);
     }
 
-    public List<Message> findChatMessages(String senderId, String recipientId) {
-        var chatId = chatRoomService.getChatId(senderId, recipientId, false);
+    public List<Message> findChatMessages(String sender, String recipient) {
+        var chatId = chatRoomService.getChatId(sender, recipient, false);
 
         var messages =
                 chatId.map(cId -> repository.findByChatId(cId)).orElse(new ArrayList<>());
 
         if(messages.size() > 0) {
-            updateStatuses(senderId, recipientId, Status.DELIVERED);
+            updateStatuses(sender, recipient, Status.DELIVERED);
         }
 
         return messages;
@@ -54,11 +54,11 @@ public class MessageService {
                         new ResourceNotFoundException("can't find message (" + id + ")"));
     }
 
-    public void updateStatuses(String senderId, String recipientId, Status status) {
+    public void updateStatuses(String sender, String recipient, Status status) {
         Query query = new Query(
                 Criteria
-                        .where("senderId").is(senderId)
-                        .and("recipientId").is(recipientId));
+                        .where("sender").is(sender)
+                        .and("recipient").is(recipient));
         Update update = Update.update("status", status);
         mongoOperations.updateMulti(query, update, Message.class);
     }
