@@ -13,7 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document
+@Document("chatrooms")
 public class Chatroom {
     @Id @GeneratedValue private long cId;
     private String chatId;

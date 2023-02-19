@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface MessageRepository extends MongoRepository<Message, String> {
-
     long countBySenderAndRecipientAndStatus(
             String sender, String recipient, Status status);
 

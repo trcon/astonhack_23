@@ -1,6 +1,7 @@
 package com.example.goosechat.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,11 +12,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Document
+@Document("message")
 @Data
 public class Message {
-
-    @Id private long mId;
+    @Id @GeneratedValue private long mId;
     private String sender;
     private String recipient;
     private String content;

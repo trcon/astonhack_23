@@ -20,10 +20,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
     @MessageMapping("/chat")
     public void processMessage(@Payload Message message) {
-        var chatId = chatroomService.getChatId(message.getSender(), message.getRecipient(), true);
-        message.setChatId(chatId.get());
+//        var chatId = chatroomService.getChatId(message.getSender(), message.getRecipient(), true);
+//        message.setChatId(chatId.get());
 
         Message saved = messageService.save(message);
+
     }
 
     @GetMapping("/messages/{sender}/{recipient}")
