@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+body {
+  margin: 0;
+  /* font-family: 'Mynerve', cursive; */
+  font-family: 'Shantell Sans', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  /* primary color scheme */
+  --color-primary: #ff7700;
+  --color-secondary: rgb(0, 149, 255);
+  --color-trianary: #fff;
+
+  /* variant color scheme */
+  --color-variant: rgb(37, 0, 64);
+  --color-bg-variant: rgb(69, 98, 130);
+
+  --color-white: #fff;
+  --color-light: rgba(255, 255, 255, 0.5);
+  --color-transparent: rgba(3, 78, 131, 0.2);
+
+  --container-width-l: 75%;
+  --container-width-m: 85%;
+  --container-width-s: 90%;
+
+  --transition: all 400ms ease; 
+
+  --link-size: 0.25rem;
+}
+
+.example::-webkit-scrollbar {
+  display: none;
+}
+
+h1{
+  font-size: 4rem;
+}
+
+h2{
+  font-size: 3rem;
+}
+
+h3{
+  font-size: 2rem;
+}
+
+
+
+
+
